@@ -109,6 +109,7 @@ class Miner extends Villager
                 this.health = 100;
                 hospitals[0].releasePatient();
                 this.state = 0;
+                console.log('miner healed', this);
             }
         }
     }

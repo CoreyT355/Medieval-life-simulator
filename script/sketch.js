@@ -134,7 +134,12 @@ function draw()
 
     townhall.draw();
 
-    warriors.forEach(warrior => { warrior.draw(); });
+    warriors.forEach(warrior => 
+    { 
+      warrior.draw(); 
+      warrior.action();
+      warrior.checkForEnemies();
+    });
     enemies.forEach(enemy => enemy.draw());
 }
 

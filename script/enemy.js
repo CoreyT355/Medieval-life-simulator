@@ -25,11 +25,26 @@ class Enemy
 		});
 	}
 
+	checkForWarriors()
+	{
+		warriors.forEach(warrior =>
+		{
+			var dist = distanceTo(this.posX, this.posY, warrior.posX, warrior.posY);
+			if (dist < 15)
+			{
+				warrior.health -= 10;
+				warrior.displayText = "OUCH!";
+				setTimeout(() => warrior.displayText = `WARRIOR (${warrior.health})`, 1500);
+			}
+		});
+	}
+
 	draw()
 	{
 		if (this.health > 0)
 		{
 			this.checkForMiners();
+			this.checkForWarriors();
 
 			if (distanceTo(this.posX, this.posY, this.direction[0], this.direction[1]) < 10)
 			{
